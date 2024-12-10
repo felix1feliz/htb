@@ -112,7 +112,7 @@ int main(int argc, char **argv) {
 	}
 
 	if(output == NULL) {
-		output = (char *)malloc(sizeof(source) * sizeof(char) + 4 * sizeof(char));
+		output[sizeof(source) * sizeof(char) + 4 * sizeof(char)];
 		output[0] = '\0';
 		strcat(output, source);
 		strcat(output, ".out");
@@ -134,6 +134,7 @@ int main(int argc, char **argv) {
 		printf("Unable to open output file\n");
 		return 1;
 	}
+
 
 	char c = 0;
 	unsigned char val = 0;
