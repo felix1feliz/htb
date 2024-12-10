@@ -19,10 +19,9 @@ You can install htb by cloning the repo and runing `sudo make install` or `sudo 
 
 ## Usage
 
-htb [OPTIONS] <SOURCE>
+htb \[OPTIONS] <SOURCE>
 
 Options:
  -h         Prints this
  -o <PATH>  Specifies the output file
  -e         Gives output execute permission
-
