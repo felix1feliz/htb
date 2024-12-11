@@ -112,7 +112,8 @@ int main(int argc, char **argv) {
 	}
 
 	if(output == NULL) {
-		output[sizeof(source) * sizeof(char) + 4 * sizeof(char)];
+		char buff[sizeof(source) * sizeof(char) + 4 * sizeof(char) + 1 * sizeof(char)];
+		output = buff;
 		output[0] = '\0';
 		strcat(output, source);
 		strcat(output, ".out");
