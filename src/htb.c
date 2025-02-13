@@ -111,10 +111,13 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
+    int got_output = 1;
+
 	if(output == NULL) {
-		char buff[sizeof(source) * sizeof(char) + 4 * sizeof(char) + 1 * sizeof(char)];
-		output = buff;
-		output[0] = '\0';
+        got_output = 0;
+        size_t output_size = strlen(source) + 5;
+        output = malloc(output_size);
+        memset(output, 0, output_size);
 		strcat(output, source);
 		strcat(output, ".out");
 	}
@@ -131,6 +134,7 @@ int main(int argc, char **argv) {
 
 	// Output File Descriptor
 	int ofd = open(output, O_WRONLY | O_CREAT | O_TRUNC, perms);
+    if(!got_output) free(output);
 	if(ofd == -1) {
 		printf("Unable to open output file\n");
 		return 1;
